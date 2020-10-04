@@ -4,7 +4,8 @@ global with sharing class PackageCreatorController {
     {
         String uniqueKey = ApexPages.currentPage().getParameters().get('uniqueKey');
         System.debug(Cache.Org.contains('local.PackageXMLStorage.'+uniqueKey));
-        if (Cache.Org.contains('local.PackageXMLStorage.'+uniqueKey)) 
+
+        if (String.isNotBlank(uniqueKey) && Cache.Org.contains('local.PackageXMLStorage.'+uniqueKey)) 
         {
             String base64str = (String)Cache.Org.get('local.PackageXMLStorage.'+uniqueKey);
             System.debug(base64str);
