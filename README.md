@@ -16,5 +16,11 @@ This cool app allows developers/admins to select their component just like they 
 ## How to use it
 The github repo comes with a lightning enabled tab - `Package Creator`. User just need to enable access to this tab to the applicable users using profile or permission set.
 
+## Get it
+<a href="https://githubsfdeploy.herokuapp.com?owner=santanuhaldersfdc&repo=Package-XML-Creator&ref=master">
+  <img alt="Deploy to Salesforce"
+       src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/deploy.png">
+</a>
+
 ## Open Source
 The tool is open for forking, please send me a pull request.
