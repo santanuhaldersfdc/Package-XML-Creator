@@ -25,8 +25,7 @@ global with sharing class PackageCreatorController {
         {
             String base64Str = EncodingUtil.base64Encode(Blob.valueOf(jsonString));
             Datetime currentTime = System.now();
-            String timeStr = ''+currentTime.Year()+currentTime.Month()+currentTime.Day()
-                            +currentTime.Hour()+currentTime.Minute()+currentTime.Second();
+            String timeStr = ''+currentTime.Year()+currentTime.Month()+currentTime.Day()+currentTime.Hour()+currentTime.Minute()+currentTime.Second();
             if(String.isBlank(uniqueKey))
             {
                 uniqueKey = UserInfo.getUserId()+timeStr;

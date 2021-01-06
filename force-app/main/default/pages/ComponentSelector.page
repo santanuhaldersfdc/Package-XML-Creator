@@ -502,7 +502,7 @@
         function onLoad() {
             const reqObj = new XMLHttpRequest();
             console.log(reqObj);
-            reqObj.open('GET', '/resource/1600015986000/MetadataJSON');
+            reqObj.open('GET', '{!URLFOR($Resource.MetadataJSON)}');
             reqObj.setRequestHeader('Authorization', 'Bearer ' + __sfdcSessionId);
 
             reqObj.onreadystatechange = function () {
@@ -510,32 +510,24 @@
                 if (reqObj.readyState === 4) {
                     if (reqObj.status === 200)//success
                     {
-                        console.log(reqObj.readyState);
-                        console.log(reqObj.status);
-                        console.log(reqObj.responseText);
                         const metadataArr = JSON.parse(reqObj.responseText);
-                        console.log(metadataArr);
                         var theSelectEl = document.getElementById('{!$Component.theForm.theSelect}');
                         theSelectEl.innerHTML = '';
-                        let optVar = document.createElement('option');
-                        optVar.textContent = 'Select component type';
-                        optVar.value = 'none';
-                        theSelectEl.appendChild(optVar);
-                        for (var i = 0; i < metadataArr.length; i++) {
-                            let optVar = document.createElement('option');
-                            optVar.textContent = metadataArr[i].ObjectLabel;
-                            optVar.value = metadataArr[i].ObjectAPIName;
-                            theSelectEl.appendChild(optVar);
-
-                            metadataToFieldMap[metadataArr[i].ObjectAPIName] =
+                        let options = '';
+                        options = '<option value="none">Select component type</option>';
+                        
+                        metadataArr.forEach(item=>{
+                            options += '<option value="'+item.ObjectAPIName+'">'+item.ObjectLabel+'</option>';
+                            metadataToFieldMap[item.ObjectAPIName] =
                             {
-                                "FieldsToFetch": metadataArr[i].FieldsToFetch,
-                                "Method": metadataArr[i].Method,
-                                "Clause": metadataArr[i].Clause,
-                                "IncludePckg": metadataArr[i].IncludePckg,
-                                "DisplayFormat": metadataArr[i].DisplayFormat
+                                "FieldsToFetch": item.FieldsToFetch,
+                                "Method": item.Method,
+                                "Clause": item.Clause,
+                                "IncludePckg": item.IncludePckg,
+                                "DisplayFormat": item.DisplayFormat
                             };
-                        }
+                        });
+                        theSelectEl.innerHTML = options;
                         console.log(metadataToFieldMap);
                         hideSpinner();
                     }
