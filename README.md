@@ -14,7 +14,8 @@ This cool app allows developers/admins to select their component just like they 
 1. [JsForce](http://jsforce.github.io/jsforce/doc/Metadata.html)
 
 ## How to use it
-The github repo comes with a lightning enabled tab - `Package Creator`. User just need to enable access to this tab to the applicable users using profile or permission set.
+1. Create a Platform Cache partition with the name - PackageXMLStorage with some Organization capacity
+2. The github repo comes with a lightning enabled tab - `Package Creator`. User just need to enable access to this tab to the applicable users using profile or permission set.
 
 ## Get it
 <a href="https://githubsfdeploy.herokuapp.com?owner=santanuhaldersfdc&repo=Package-XML-Creator&ref=master">
