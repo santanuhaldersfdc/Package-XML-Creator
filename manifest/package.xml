@@ -14,10 +14,6 @@
         <name>CustomTab</name>
     </types>
     <types>
-        <members>PackageXMLStorage</members>
-        <name>PlatformCachePartition</name>
-    </types>
-    <types>
         <members>CoreAPIJsForce</members>
         <members>MetadataAPIJsForce</members>
         <members>MetadataJSON</members>
